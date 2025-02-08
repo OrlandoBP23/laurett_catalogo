@@ -1,11 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Floristería Laurett</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f8f8;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header */
+        #header {
+            margin-bottom: 60px;
+        }
+
+        #titulo {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        #boton {
+            display: block;
+            margin: 0 auto;
+            border: none;
+            background: none;
+            border-bottom: 3px solid coral;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        /* Contenedor del catálogo */
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Tarjetas */
+        .tarjeta {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Imagen */
+        .tarjeta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Contenido de la tarjeta */
+        .contenido {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Nombre de la flor */
+        .contenido h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* Precio */
+        .precio {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #7ca1d1;
+            margin-bottom: 8px;
+        }
+
+        /* Descripción */
+        .descripcion {
+            font-size: 0.9rem;
+            color: #666;
+            max-height: 60px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* En móviles, mostrar la descripción siempre */
+        @media (max-width: 768px) {
+            .descripcion {
+                opacity: 1;
+                max-height: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    hola
+
+<header id="header">
+    <h1 id="titulo">FLORERÍA LAURETT</h1>
+    <input type="button" value="Catálogo 14 de febrero" id="boton">
+</header>
+
+<section class="catalogo">
+    <div class="tarjeta">
+        <img src="ramo-ejemplo.jpg" alt="Flor 1">
+        <div class="contenido">
+            <h2>Rosa Azul</h2>
+            <p class="precio">$150</p>
+            <p class="descripcion">Una hermosa rosa azul que simboliza misterio y exclusividad.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="ramo-ejemplo.jpg" alt="Flor 2">
+        <div class="contenido">
+            <h2>Lirio Estelar</h2>
+            <p class="precio">$180</p>
+            <p class="descripcion">Un lirio de pétalos brillantes con un aroma celestial.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="ramo-ejemplo.jpg" alt="Flor 3">
+        <div class="contenido">
+            <h2>Orquídea Violeta</h2>
+            <p class="precio">$200</p>
+            <p class="descripcion">Una orquídea exótica con tonos vibrantes y elegantes.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <img src="ramo-ejemplo.jpg" alt="Flor 4">
+        <div class="contenido">
+            <h2>Tulipán Dorado</h2>
+            <p class="precio">$130</p>
+            <p class="descripcion">Un tulipán radiante que brilla como el oro bajo la luz.</p>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
