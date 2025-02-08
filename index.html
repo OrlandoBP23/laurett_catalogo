@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floristería Laurett</title>
+    <title>Floristería Laurette</title>
     <style>
         /* Estilos generales */
         body {
@@ -39,15 +39,21 @@
             padding: 5px 10px;
         }
 
-        /* Contenedor del catálogo */
         .catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            justify-content: center;
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
-        }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas */
+    gap: 15px;
+    row-gap: 25px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 500px) {
+    .catalogo {
+        grid-template-columns: repeat(2, minmax(140px, 1fr)); /* Ajuste en móviles */
+    }
+}
 
         /* Tarjetas */
         .tarjeta {
