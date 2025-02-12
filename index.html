@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florería Laurette</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tarjetas = document.querySelectorAll(".tarjeta");
+
+            tarjetas.forEach(tarjeta => {
+                tarjeta.addEventListener("click", function() {
+                    // Alternar la clase "activa" en la tarjeta clickeada
+                    this.classList.toggle("activa");
+                });
+            });
+        });
+    </script>
     <style>
         /* Reset */
         * {
@@ -22,7 +34,7 @@
         .vista {
             position: relative;
             height: 100vh;
-            background: url('fondo.png') no-repeat center center/cover;
+            background: url('./imagenes/fondo.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -104,22 +116,21 @@
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s;
-        }
-
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s, max-height 0.3s ease;
+            max-height: 280px;
+            cursor: pointer;
         }
 
         .tarjeta img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: height 0.3s ease;
         }
 
         .contenido {
             padding: 15px;
+            transition: transform 0.3s ease, font-size 0.3s ease;
         }
 
         .contenido h2 {
@@ -134,6 +145,7 @@
             color: #7ca1d1;
             margin-bottom: 8px;
         }
+
 
         /* Sección de Contacto y Ubicación */
         .section {
@@ -179,6 +191,23 @@
     background: none;
 }
 
+ /* Estilos cuando la tarjeta está expandida */
+ .tarjeta.activa {
+            max-height: 100%;
+        }
+
+        .tarjeta.activa img {
+            height: 460px; /* Imagen más grande */
+        }
+
+        .tarjeta.activa .contenido {
+            transform: scale(0.9); /* Reduce un poco el tamaño del texto */
+        }
+
+        .tarjeta.activa .precio {
+            font-size: 0.9rem; /* Precio más pequeño */
+        }
+
     </style>
 </head>
 <body>
@@ -205,7 +234,7 @@
             <h1 id="titulo">CATÁLOGO 14 DE FEBRERO</h1> 
         </header>
         <div class="tarjeta">
-            <img src="ramo-ejemplo.jpg" alt="Flor 1">
+            <img src="./imagenes/31.jpg" alt="Flor 1">
             <div class="contenido">
                 <h2>Rosa Azul</h2>
                 <p class="precio">$150</p>
@@ -214,7 +243,7 @@
         </div>
 
         <div class="tarjeta">
-            <img src="ramo-ejemplo.jpg" alt="Flor 2">
+            <img src="./imagenes/29.jpg" alt="Flor 2">
             <div class="contenido">
                 <h2>Lirio Estelar</h2>
                 <p class="precio">$180</p>
@@ -223,7 +252,7 @@
         </div>
 
         <div class="tarjeta">
-            <img src="ramo-ejemplo.jpg" alt="Flor 3">
+            <img src="./imagenes/30.jpg" alt="Flor 3">
             <div class="contenido">
                 <h2>Orquídea Violeta</h2>
                 <p class="precio">$200</p>
@@ -232,7 +261,259 @@
         </div>
 
         <div class="tarjeta">
-            <img src="ramo-ejemplo.jpg" alt="Flor 4">
+            <img src="./imagenes/32.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/1.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/2.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/3.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/4.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/5.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/6.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/7.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/8.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/9.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/10.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/11.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/12.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/13.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/14.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/15.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/16.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/17.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/18.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/19.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/20.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/21.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/22.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/23.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/24.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/25.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/26.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/27.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="./imagenes/28.jpg" alt="Flor 4">
             <div class="contenido">
                 <h2>Tulipán Dorado</h2>
                 <p class="precio">$130</p>
