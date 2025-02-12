@@ -2,6 +2,9 @@
 <html lang="es">
 
 <head>
+    <!-- FontAwesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florería Laurette</title>
@@ -103,6 +106,13 @@
             /* Espacio lateral en la sección completa */
         }
 
+        #contenido {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
         .tarjeta {
             background: #fff;
             border-radius: 10px;
@@ -110,6 +120,7 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s;
         }
+
 
         .tarjeta:hover {
             transform: translateY(-5px);
@@ -207,6 +218,7 @@
             height: auto;
             display: block;
             margin: auto;
+            border-radius: 20px;
         }
 
         .cerrar {
@@ -216,6 +228,47 @@
             font-size: 40px;
             color: white;
             cursor: pointer;
+        }
+
+        #titulo_ubi,
+        #titulo_contacto {
+            border-bottom: 2px solid salmon;
+            margin-bottom: 50px;
+        }
+
+        #contenido_ubi {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #info {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        #info {
+            display: block;
+            margin-top: 50px;
+            /* Opcional, para separar un poco el texto */
+            padding: 20px;
+        }
+
+        #titulo_contacto {
+            margin-bottom: 10px;
+            /* Opcional, para agregar espacio entre el título y la información */
+        }
+
+        #subtitulo {
+            font-size: 13px;
+
+        }
+
+        .lista-puntos {
+
+            margin-bottom: 10px;
         }
     </style>
     <script>
@@ -568,15 +621,38 @@
 
     <!-- Contacto -->
     <section class="section" id="contacto">
-        <h2>Contacto</h2>
-        <p>Email: contacto@floristerialaurette.com</p>
-        <p>Teléfono: +1 234 567 890</p>
+        <h2 id="titulo_contacto">Contacto</h2>
+        <div id="contenido">
+            <div id="info">
+                <h1>Agua Prieta</h1> <br>
+
+                <i class="fa-solid fa-phone" href="tel:+6333380047"> 6333380047 </i> <br><br>
+                <i class="fa-solid fa-phone" href="tel:+6331357461"> 6331357461</i> 
+
+            </div>
+
+            <div id="info">
+                <h1 id="titulo_hmo">Hermosillo</h1>
+                <p id="subtitulo">*Servicio a Domicilio*</p> <br>
+
+                <i class="fa-solid fa-phone" href="tel:+6333380047"> 6331346358</i> 
+
+            </div>
+        </div>
+
+
+
+
+
     </section>
 
     <!-- Ubicación -->
     <section class="section" id="ubicacion">
-        <h2>Ubicación</h2>
-        <p>Av. Flores Hermosas 123, Ciudad Primavera</p>
+        <h2 id="titulo_ubi">Ubicación</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.006620841561!2d-109.54614582537319!3d31.3311902564661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86da09b4e5aaf5f9%3A0x3763fb246d5443dc!2sFlorer%C3%ADa%20Laurette!5e0!3m2!1ses!2smx!4v1739328115137!5m2!1ses!2smx"
+            width="600" height="450" style="border-radius:20px; border: none;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
 </body>
