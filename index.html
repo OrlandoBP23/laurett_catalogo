@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florería Laurette</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const tarjetas = document.querySelectorAll(".tarjeta");
 
-            tarjetas.forEach(tarjeta => {
-                tarjeta.addEventListener("click", function() {
-                    // Alternar la clase "activa" en la tarjeta clickeada
-                    this.classList.toggle("activa");
-                });
-            });
-        });
-    </script>
     <style>
         /* Reset */
         * {
@@ -87,16 +77,17 @@
         }
 
         #header {
-    text-align: center;
-    padding: 20px 0;
-    grid-column: span 2; /* Hace que el título ocupe todo el ancho del grid */
-}
+            text-align: center;
+            padding: 20px 0;
+            grid-column: span 2;
+            /* Hace que el título ocupe todo el ancho del grid */
+        }
 
-#titulo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-}
+        #titulo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
 
         /* Catálogo */
         .catalogo {
@@ -108,7 +99,8 @@
             width: 100%;
             margin: 40px auto;
             text-align: center;
-            padding: 0 40px; /* Espacio lateral en la sección completa */
+            padding: 0 40px;
+            /* Espacio lateral en la sección completa */
         }
 
         .tarjeta {
@@ -116,21 +108,22 @@
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s, max-height 0.3s ease;
-            max-height: 280px;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         .tarjeta img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: height 0.3s ease;
         }
 
         .contenido {
             padding: 15px;
-            transition: transform 0.3s ease, font-size 0.3s ease;
         }
 
         .contenido h2 {
@@ -145,7 +138,6 @@
             color: #7ca1d1;
             margin-bottom: 8px;
         }
-
 
         /* Sección de Contacto y Ubicación */
         .section {
@@ -167,49 +159,95 @@
         }
 
         .btn-contacto {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.btn-contacto .btn {
-    all: unset;
-    font-size: 1rem;
-    color: #333;
-    background: none;
-    padding: 4px 0;
-    display: inline-block;
-    width: fit-content; /* Se ajusta al texto */
-    border-bottom: 2px solid #333;
-    text-align: center;
-    transition: 0.3s;
-}
-
-
-
-#ubicacion, #contacto{
-    background: none;
-}
-
- /* Estilos cuando la tarjeta está expandida */
- .tarjeta.activa {
-            max-height: 100%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
-        .tarjeta.activa img {
-            height: 460px; /* Imagen más grande */
+        .btn-contacto .btn {
+            all: unset;
+            font-size: 1rem;
+            color: #333;
+            background: none;
+            padding: 4px 0;
+            display: inline-block;
+            width: fit-content;
+            /* Se ajusta al texto */
+            border-bottom: 2px solid #333;
+            text-align: center;
+            transition: 0.3s;
         }
 
-        .tarjeta.activa .contenido {
-            transform: scale(0.9); /* Reduce un poco el tamaño del texto */
+
+
+        #ubicacion,
+        #contacto {
+            background: none;
         }
 
-        .tarjeta.activa .precio {
-            font-size: 0.9rem; /* Precio más pequeño */
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            /* Asegurar que está oculto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
         }
 
+        .modal-contenido {
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
     </style>
+    <script>
+
+        function abrirModal(src) {
+            console.log("Abriendo modal con imagen:", src); // Depuración
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("imgModal").src = src;
+        }
+
+        function cerrarModal() {
+            console.log("Cerrando modal"); // Depuración
+            document.getElementById("modal").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".tarjeta img").forEach(img => {
+                img.addEventListener("click", function () {
+                    abrirModal(this.src);
+                });
+            });
+
+            document.getElementById("modal").addEventListener("click", function (event) {
+                if (event.target === this) {
+                    cerrarModal();
+                }
+            });
+        });
+
+    </script>
 </head>
+
 <body>
 
     <!-- Sección Principal -->
@@ -218,20 +256,26 @@
         <div class="btn-contacto">
             <a href="#contacto" class="btn">Contáctanos</a>
         </div>
-    
+
         <div class="vista-content">
             <h1>Florería Laurette</h1>
             <p>Dilo con flores este 14 de febrero</p>
             <a href="#catalogo" class="btn">Ver Catálogo</a>
         </div>
     </section>
-    
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <img id="imgModal" class="modal-contenido" src="">
+    </div>
+
 
     <!-- Catálogo -->
 
     <section class="catalogo" id="catalogo">
         <header id="header">
-            <h1 id="titulo">CATÁLOGO 14 DE FEBRERO</h1> 
+            <h1 id="titulo">CATÁLOGO 14 DE FEBRERO</h1>
         </header>
         <div class="tarjeta">
             <img src="./imagenes/31.jpg" alt="Flor 1">
@@ -536,4 +580,5 @@
     </section>
 
 </body>
+
 </html>
