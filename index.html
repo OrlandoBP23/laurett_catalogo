@@ -178,6 +178,24 @@
             margin: auto;
         }
 
+        #redes_sociales{
+            position: absolute;
+            top: 20px;
+            right: 120px; 
+        }
+
+        #icono{
+            font-size: 1.5rem;
+            color: #333;
+            background: none;
+            padding: 4px 0;
+            display: inline-block;
+            width: fit-content;
+            /* Se ajusta al texto */
+            text-align: center;
+            transition: 0.3s;
+        }
+
         .btn-contacto {
             position: absolute;
             top: 20px;
@@ -280,6 +298,26 @@
             margin-bottom: 10px;
         }
 
+        .fa-instagram{
+            color: #fa86ad;
+        }
+
+        #insta_link{
+            all:unset;
+            font-size: 14px;
+            border-bottom: 2px #333 solid;
+        }
+
+        .fa-facebook{
+            color: blue;
+        }
+
+        #face_link{
+            all:unset;
+            font-size: 14px;
+            border-bottom: 2px #333 solid;
+        }
+
         /* Hacer el iframe responsivo */
 iframe {
     max-width: 100%;
@@ -342,6 +380,12 @@ document.addEventListener("DOMContentLoaded", function () {
     <!-- Sección Principal -->
     <section class="vista">
         <!-- Botón en la esquina superior derecha -->
+        <div id="redes_sociales">
+            <a href="https://www.instagram.com/floreria_lauretteap/" target="_blank">
+                <i class="fa-brands fa-instagram" id="icono"></i>
+            </a>
+        </div>
+        
         <div class="btn-contacto">
             <a href="#contacto" class="btn">Contáctanos</a>
         </div>
@@ -501,19 +545,30 @@ document.addEventListener("DOMContentLoaded", function () {
         <div id="contenido">
             <div id="info">
                 <h1>Agua Prieta</h1> <br>
-
-                <i class="fa-solid fa-phone" href="tel:+6333380047" id="num"> 6333380047 </i> <br><br>
-                <i class="fa-solid fa-phone" href="tel:+6331357461" id="num"> 6331357461</i> 
-
+            
+                <a href="tel:+6333380047" id="num">
+                    <i class="fa-solid fa-phone"></i> 6333380047
+                </a> <br><br>
+            
+                <a href="tel:+6331357461" id="num">
+                    <i class="fa-solid fa-phone"></i> 6331357461
+                </a>
             </div>
+            
 
             <div id="info">
-                <h1 id="titulo_hmo">Hermosillo</h1>
-                <p id="subtitulo">*Servicio a Domicilio*</p> <br>
-
-                <i class="fa-solid fa-phone" href="tel:+6333380047" id="num"> 6331346358</i> 
-
+                <h1 id="titulo_hmo">Redes sociales</h1>
+                <p id="subtitulo" style="display: none;">*Servicio a Domicilio* </p> <br>
+                <a href="https://www.instagram.com/floreria_lauretteap/" target="_blank" id="insta_link">
+                    <i class="fa-brands fa-instagram"></i> floreria_lauretteap
+                </a>
+                <br> <br>
+                <a href="https://www.facebook.com/p/Floreria-Laurette-100063589027932/?locale=es_LA" target="_blank" id="face_link">
+                    <i class="fa-brands fa-facebook-f"></i> Floreria Laurette 
+                </a>
+            
             </div>
+            
         </div>
 
 
